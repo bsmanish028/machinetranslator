@@ -3354,7 +3354,7 @@ input[type="checkbox"]:checked+.check-box-item {
     width: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.8)
+    background-color: rgba(0, 0, 0, 0.2)
 }
 
 .popup .content-popup {
@@ -3527,7 +3527,7 @@ input[type="checkbox"]:checked+.check-box-item {
 }
 
 .who-section .box .img-wrap:hover .overlay {
-    background-color:#F86251;
+    /*background-color:#F86251;*/
     visibility: visible;
     opacity: 1;
     display: block\9;
