@@ -1,0 +1,23 @@
+.kutta{
+	background-color:  #f5f5dc;
+}
+#my_file{
+	display: none;
+}
+#get_file{
+	background: #f9f9f9;
+	border: 1px solid #88c;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px;
+	cursor: pointer;
+}
+#customfileupload{
+	display: inline;
+	background-color: #fff;
+	font-size: 14px;
+	z-index: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
