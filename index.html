@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main Page</title>
+    <title>Machine Translator - A Translator for NITS</title>
+    <link rel="shortcut icon" href="images/abinash.png">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -55,9 +56,12 @@
                 <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="editor.html">Editor</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
             </li>
-                        <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
             </li>
             <!-- </li>
@@ -75,12 +79,14 @@
   <div class="col-md-3">
       <input type="image" src="images/upload.jpg" class="upload">
       <input type="file" id="my_file" style="display: none;">
+      <p id="selected">No file chosen</p>
   </div>
   <div class="offset-6 col-md-3">
       <a href="editor.html">
           <img src="images/write.jpg" class="upload">
       </a>
   </div>
+  <input type="file" name="">
 
 
 </div>
@@ -95,9 +101,14 @@
     <!-- code for grab a file -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
-        $("input[type='image']").click(function() {
-        $("input[id='my_file']").click();
-});
+            $("input[type='image']").click(function() {
+            $("input[id='my_file']").click();
+        });
+        $("input[type='file']").change(function(e){
+            var FileName = e.target.files[0].name;
+            alert("The file ' " +FileName+ " ' has been selected.");
+            $('#selected').html($('selected').html().replace(FileName));
+        });
     </script>
     <!-- scripts jquery and other by bootstrap  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
