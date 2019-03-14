@@ -86,7 +86,7 @@
           <img src="images/write.jpg" class="upload">
       </a>
   </div>
-  <input type="file" name="">
+  
 
 
 </div>
@@ -107,7 +107,7 @@
         $("input[type='file']").change(function(e){
             var FileName = e.target.files[0].name;
             alert("The file ' " +FileName+ " ' has been selected.");
-            $('#selected').html($('selected').html().replace(FileName));
+            $('#selected').replaceWith("File Selected: "+FileName);
         });
     </script>
     <!-- scripts jquery and other by bootstrap  -->
