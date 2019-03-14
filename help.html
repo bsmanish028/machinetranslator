@@ -73,23 +73,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
-<div class="col-md-10" style="padding-top: 200px;padding-left: 180px; padding-right: 40px">
-  <div class="form-row">
-  <div class="col-md-3">
-      <input type="image" src="images/upload.jpg" class="upload">
-      <input type="file" id="my_file" style="display: none;">
-      <p id="selected" style="text-align: center;">No file chosen</p>
-  </div>
-  <div class="offset-6 col-md-3">
-      <a href="editor.html">
-          <img src="images/write.jpg" class="upload">
-      </a>
-  </div>
-  
 
-
-</div>
-</div>
 <!-- Initial footer section -->
 <div style="margin-top: 180px;margin-bottom: 0px;font-family: courier">
 <hr class="bold" style="border-color: red; color: red; margin: 0px 118px 0px 118px">
@@ -105,16 +89,6 @@
     <!-- code for grab a file -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         
-    </script>
-    <script>
-            $("input[type='image']").click(function() {
-            $("input[id='my_file']").click();
-        });
-        $("input[type='file']").change(function(e){
-            var FileName = e.target.files[0].name;
-            alert("The file ' " +FileName+ " ' has been selected.");
-            $('#selected').replaceWith("File Selected: "+FileName);
-        });
     </script>
     <!-- scripts jquery and other by bootstrap  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

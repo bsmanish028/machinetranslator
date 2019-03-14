@@ -23,7 +23,7 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-html {
+/*html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
@@ -31,7 +31,7 @@ html {
 
 body {
     margin: 0
-}
+}*/
 
 article,
 aside,
@@ -1358,7 +1358,7 @@ li>ol {
     vertical-align: bottom
 }
 
-@media screen and (max-width: 720px) {
+/*@media screen and (max-width: 720px) {
     .flag--responsive {
         direction: ltr
     }
@@ -2230,8 +2230,8 @@ li>ol {
         margin-left: 100%
     }
 }
-
-section {
+*/
+/*section {
     padding: 140px 0;
     background-color: #fff
 }
@@ -2260,7 +2260,7 @@ section p {
 /*section.gray-section {
     background-color: #f2f2f2
 }*/
-
+/*
 @media (max-width: 992px) {
     .container {
         width: 100%
@@ -3329,7 +3329,7 @@ input[type="checkbox"]:checked+.check-box-item {
     visibility: visible;
     opacity: 1;
     display: block\9
-}
+}*/
 
 .iOS .popup.active {
     display: block
@@ -3903,7 +3903,7 @@ input[type="checkbox"]:checked+.check-box-item {
     display: inline-block
 }
 
-/*.when-section {
+.when-section {
     border-bottom: 1px solid #e3e3e3;
     padding-bottom: 110px
 }
@@ -4072,7 +4072,7 @@ input[type="checkbox"]:checked+.check-box-item {
     transform: translate(0, 0);
     transition: all 0.3s ease-in
 }
-*/
+
 .people-say .container {
     position: relative
 }
@@ -4728,7 +4728,7 @@ input[type="checkbox"]:checked+.check-box-item {
     z-index: 3;
     transition: all 0s ease
 }
-
+*/
 #top:hover {
     background-color: #fafafa
 }
@@ -4740,8 +4740,7 @@ input[type="checkbox"]:checked+.check-box-item {
     -ms-transform: translate(0, -50%);
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%)
-}*/
-
+}
 @media (max-width: 1350px) {
     .people-say .prev {
         left: 0
