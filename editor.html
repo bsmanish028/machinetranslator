@@ -155,7 +155,8 @@
             toolbar: toolbarOptions
         },
 
-        theme: 'snow'
+        theme: 'snow',
+        placeholder: 'Start typing here and scroll down to see the translated result.'
       });
     </script>
             <script>
@@ -163,7 +164,7 @@
 
             $("#english-form").submit(function(e){
 
-             var content = quill.get("english-text").getContent();
+             var content = quill.root.innerHTML;
 
              $("#hindi-text").html(content);
 
