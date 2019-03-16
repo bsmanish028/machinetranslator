@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main Page</title>
+    <title>Machine Translator - A Translator for NITS</title>
     <link rel="shortcut icon" href="images/abinash.png">
-
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <style type="text/css">
-        textarea {
-                  
-                  
-                  -moz-border-bottom-colors: none;
-                  -moz-border-left-colors: none;
-                  -moz-border-right-colors: none;
-                  -moz-border-top-colors: none;
-                  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-                  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
-                  border-image: none;
-                  border-radius: 6px 6px 6px 6px;
-                  border-style: none solid solid none;
-                  border-width: medium 1px 1px medium;
-                  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-                  color: #555555;
-                  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-                  font-size: 1em;
-                  line-height: 1.4em;
-                  padding: 5px 8px;
-                  transition: background-color 0.2s ease 0s;
-                }
-
-
-textarea:focus {
-    background: none repeat scroll 0 0 #FFFFFF;
-    outline-width: 0;
-}
+        .upload{
+            box-shadow: 10px 14px 8px 0 
+                            rgba(0, 0, 0, 0.2), 0 6px 20px 0 
+                            rgba(0, 0, 0, 0.19);
+            border: 2px solid #F86251;
+            padding: 4px; 
+            border-radius: 8px;
+            height: 180px;
+            width: 280px;
+            opacity: 0.8;
+        }
+        .upload:hover{
+           background-color: #F86251;
+           opacity: 2
+        }
     </style>
-    
 </head>
-<body style="background-color:  #f5f5dc;">
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #F86251">
+<body style="background-color:  #f5f5dc">
+<nav class="navbar navbar-expand-md navbar-dark "style="background-color: #F86251">
     <!-- <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -68,7 +59,10 @@ textarea:focus {
                 <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="editor.html">Editor</a>
+                <a class="nav-link" href="editor2.html">Editor 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="editor.html">Editor</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
@@ -87,7 +81,16 @@ textarea:focus {
     </button>
 </nav>
 
-<div id="before" class="offset-1 col-md-10" style="font-family: courier;margin-top: 30px;">
+
+
+
+
+
+
+
+
+<!-- for english writing div -->
+<div id="before-div" class="offset-1 col-md-10" style="font-family: courier;margin-top: 30px;">
     <div class="row">
     <div class="col-md-10">
     <h3 style="text-align: left;" >Write/Paste text below:</h3></div>
@@ -95,25 +98,26 @@ textarea:focus {
         <a href="help.html" class="btn btn-primary">Help</a>
         
     </div>
+    </div>
+    <form id="english-form">
+        <div style="background-color: white;" id="toolbar"></div>
+        <div style="height: 460px;width: 1108px;background-color: white;" id="editor"></div>
+        <div style="margin-top: 12px;">
+            <input type="submit" id="before" value="Translate" class="btn btn-success btn-block"></input>
         </div>
-    
-    <div>
-        <!-- <textarea rows="1" style="height:1em;width: 100" id="text"></textarea> -->
+    </form>
+</div>
 
-        <textarea placeholder="Write your text here...." name="comment[text]" id="comment_text"  class="ui-autocomplete-input" autocomplete="off" rows="22" cols="132" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
-    </div>
-    <div >
-        <button class="btn btn-success btn-block">Translate</button>
-    </div>
+<!-- for hindi div -->
+<div id="after-div" class="offset-1 col-md-10" style="margin-top: 40px;">
+    <h3>Translated Text: </h3>
+    <p style="background-color: white;border-radius: 8px;padding: 10px 10px 10px 10px" id="hindi-text">Start writing your text above.....</p>
+    
 </div>
 
 
-
-
-
-
 <!-- Initial footer section -->
-<div style="margin-top:20px ;margin-bottom: 0px;font-family: courier">
+<div style="margin-top: 180px;margin-bottom: 0px;font-family: courier">
 <hr class="bold" style="border-color: red; color: red; margin: 0px 118px 0px 118px">
 <p style="text-align: center;">Developed for <b><a href="https://www.nits.ac.in" style="text-decoration: none; color: black">National Institute of Technology Silchar</a></b></p>
 </div>
@@ -124,23 +128,53 @@ textarea:focus {
 
 
 
-    <!-- code to resize textarea -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <!-- code for grab a file -->
+    <!-- Include the Quill library -->
+    
+
+    <!-- Initialize Quill editor -->
     <script>
-        
-        $('textarea').each(function () {
-          this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-        }).on('input', function () {
-          this.style.height = 'auto';
-          this.style.height = (this.scrollHeight) + 'px';
-        });
+        var toolbarOptions = [
+            ['bold','italic', 'underline' ,'strike'],
+            ['blockquote', 'code-block'],
+            [ {'header': [1,2,3,4,5,6, false] } ],
+            [ {'list': 'ordered'},{'list':'bullet'} ],
+            [ {'script':'sub'},{'script': 'super'} ],
+            [ {'indent': '-1'},{'indent': '+1'} ],
+            [ {'direction': 'rtl'} ],
+            [ {'size':['small',false,'large','huge'] } ],
+            ['link','image','video','formula'],
+            [ {'color': [] }, {'background':[] } ],
+            [ {'font': [] } ],
+            [ {'align': [] } ]
+        ];
+
+        var quill = new Quill('#editor', {
+
+        modules: {
+            toolbar: toolbarOptions
+        },
+
+        theme: 'snow'
+      });
     </script>
+            <script>
+            $(document).ready(function(){
 
+            $("#english-form").submit(function(e){
 
+             var content = quill.get("english-text").getContent();
 
+             $("#hindi-text").html(content);
 
+             return false;
 
+            });
+
+        });
+        </script>
+        
+    </script>
     <!-- scripts jquery and other by bootstrap  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

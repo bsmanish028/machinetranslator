@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Machine Translator - A Translator for NITS</title>
+    <title>Editor | Machine Translator</title>
     <link rel="shortcut icon" href="images/abinash.png">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -53,10 +53,10 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="editor2.html">Feature</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="editor2.html">Editor 2</a>
+                <a class="nav-link active" href="editor2.html">Editor 2</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="editor.html">Editor</a>
@@ -87,21 +87,39 @@
 
 
 <!-- for english writing div -->
-<div id="help" class="offset-1 col-md-10" style="font-family: courier;margin-top: 30px;">
+<div id="before-div" class="offset-1 col-md-10" style="font-family: courier;margin-top: 30px;">
     <div class="row">
-    <div class="col-md-8">
-    <h3 style="text-align: left;" >Help Chahiye 'Abinash' se Contact karo.</h3></div>
+    <div class="col-md-10">
+    <h3 style="text-align: left;" >Write/Paste text below:</h3></div>
     <div style="margin:auto 20px 4px auto ">
-        <a href="editor.html" class="btn btn-primary">Start Writing 1</a>
-        <a href="editor2.html" class="btn btn-primary">Start Writing 2</a>
+        <a href="help.html" class="btn btn-primary">Help</a>
         
     </div>
     </div>
+    <div>
+        <form id="english-form" method="POST">
+        <textarea class="tinymce" id="english-text" placeholder="Write English Text here and scroll down to see Translation"></textarea>
     
+        <!-- javascript -->
+        
+    <div style="margin-top: 12px;">
+        <input type="submit" id="before" value="Translate" class="btn btn-success btn-block"></input>
+    </div>
+    </form>
+    </div>
+</div>
+
+<!-- for hindi div -->
+<div id="after-div" class="offset-1 col-md-10" style="margin-top: 40px;">
+    <h3>Translated Text: </h3>
+    <p style="background-color: white;border-radius: 8px;padding: 10px 10px 10px 10px" id="hindi-text">Start writing your text above.....</p>
     
+</div>
+
+
 <!-- Initial footer section -->
 <div style="margin-top: 180px;margin-bottom: 0px;font-family: courier">
-<hr class="bold" style="border-color: red; color: red; margin: 0px 10px 0px 10px">
+<hr class="bold" style="border-color: red; color: red; margin: 0px 118px 0px 118px">
 <p style="text-align: center;">Developed for <b><a href="https://www.nits.ac.in" style="text-decoration: none; color: black">National Institute of Technology Silchar</a></b></p>
 </div>
 <!-- footer section ends -->
@@ -111,11 +129,32 @@
 
 
 
+    <!-- code for grab a file -->
+    <!-- Include the Quill library -->
     
-        
+
+    <!-- Initialize tinymce editor -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="plugin/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="plugin/tinymce/init-tinymce.js"></script>
+        <!-- grab the text in hindi field -->
+        <script>
+            $(document).ready(function(){
+
+            $("#english-form").submit(function(e){
+
+             var content = tinymce.get("english-text").getContent();
+
+             $("#hindi-text").html(content);
+
+             return false;
+
+            });
+
+        });
+        </script>
     </script>
-    <!-- scripts jquery and other by bootstrap  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- scripts jquery and other by bootstrap-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
