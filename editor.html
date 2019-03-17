@@ -103,7 +103,7 @@
         <div style="background-color: white;" id="toolbar"></div>
         <div style="height: 460px;width: 100%;background-color: white;" id="editor"></div>
         <div style="margin-top: 12px;">
-            <input type="submit" id="before" value="Translate" class="btn btn-success btn-block"></input>
+            <input type="submit" id="before" onclick="savetextfileenglish()" value="Translate" class="btn btn-success btn-block"></input>
         </div>
     </form>
 </div>
@@ -114,6 +114,10 @@
     <p style="background-color: white;border-radius: 8px;padding: 10px 10px 10px 10px" id="hindi-text">Start writing your text above.....</p>
     
 </div>
+
+<!-- for uploading file from ML-Model and display to hindi div-->
+    <!-- <input type="file" id="fileToLoad">
+    <button onclick="loadFileAsText()">Load Selected File</button> -->
 
 
 <!-- Initial footer section -->
@@ -164,7 +168,7 @@
 
             $("#english-form").submit(function(e){
 
-             var content = quill.root.innerHTML;
+             var content = quill.root.innerHTML;// we can use .container and .root both
 
              $("#hindi-text").html(content);
 
@@ -175,7 +179,63 @@
         });
         </script>
         
-    </script>
+        <!-- save file into text file -->
+
+        <script type="text/javascript">
+                    
+                    
+            function savetextfileenglish(){
+                    var content = quill.root.innerHTML;
+                    /*//content return html format then .replace change content format to simple text*/
+                    var textToSave = content.replace(/<(?:.|\n)*?>/gm, ''); 
+
+                    //Blob used to save input file from internet
+                    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+                    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+                    var fileNameToSaveAs = 'english-'+ Math.floor(Math.random() * (+1 + +10)) + 1;
+                 
+                    var downloadLink = document.createElement("a");
+                    downloadLink.download = fileNameToSaveAs;
+                    downloadLink.innerHTML = "Download File";
+                    downloadLink.href = textToSaveAsURL;
+                    downloadLink.onclick = destroyClickedElement;
+                    downloadLink.style.display = "none";
+                    document.body.appendChild(downloadLink);
+                 
+                    downloadLink.click();
+                }
+                 
+                function destroyClickedElement(event)
+                {
+                    document.body.removeChild(event.target);
+                }
+
+
+                
+                    
+                       /* load a file a display it in hindi div*/
+
+                            /*<input type="file" id="fileToLoad">
+                            <button onclick="loadFileAsText()">Load Selected File</button>
+                    
+                */
+                 
+                            /*function loadFileAsText()
+                                {
+                                var fileToLoad = document.getElementById("fileToLoad").files[0];//load files
+                                 
+                                    var fileReader = new FileReader();
+                                    fileReader.onload = function(fileLoadedEvent) 
+                                    {
+                                        var textFromFileLoaded = fileLoadedEvent.target.result;
+                                        document.getElementById("hindi-text").value = textFromFileLoaded;
+                                    };
+                                    fileReader.readAsText(fileToLoad, "UTF-8");
+                                }*/
+ 
+            </script>
+        
+    
     <!-- scripts jquery and other by bootstrap  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
